@@ -22,6 +22,14 @@ function App() {
     endYear: "",
   });
 
+  const [education, setEducation] = useState({
+    type: "",
+    university: "",
+    degree: "",
+    startYear: "",
+    endYear: "",
+  });
+
   return (
     <div className="App">
       <Header />
@@ -30,6 +38,8 @@ function App() {
         setPersonalInfo={setPersonalInfo}
         workExperience={workExperience}
         setWorkExperience={setWorkExperience}
+        education={education}
+        setEducation={setEducation}
       />
     </div>
   );

@@ -6,6 +6,7 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import PersonalInfo from "./PersonalInfo";
 import WorkExperience from "./WorkExperience";
+import Education from "./Education";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -41,8 +42,14 @@ function a11yProps(index) {
 }
 
 export default function VerticalTabs(props) {
-  const { personalInfo, setPersonalInfo, workExperience, setWorkExperience } =
-    props;
+  const {
+    personalInfo,
+    setPersonalInfo,
+    workExperience,
+    setWorkExperience,
+    education,
+    setEducation,
+  } = props;
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
@@ -84,7 +91,7 @@ export default function VerticalTabs(props) {
         />
       </TabPanel>
       <TabPanel value={value} index={2}>
-        Item Three
+        <Education education={education} setEducation={setEducation} />
       </TabPanel>
       <TabPanel value={value} index={3}>
         Item Four
