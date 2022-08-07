@@ -15,12 +15,21 @@ function App() {
     objective: "",
   });
 
+  const [workExperience, setWorkExperience] = useState({
+    jobTitle: "",
+    orgName: "",
+    startYear: "",
+    endYear: "",
+  });
+
   return (
     <div className="App">
       <Header />
       <VerticalTabs
         personalInfo={personalInfo}
         setPersonalInfo={setPersonalInfo}
+        workExperience={workExperience}
+        setWorkExperience={setWorkExperience}
       />
     </div>
   );
