@@ -15,6 +15,8 @@ export default function ResumeBuilder(props) {
     setKeySkills,
     resumeName,
     setResumeName,
+    activeTab,
+    setActiveTab,
   } = props;
   const [currentState, setCurrentState] = React.useState(2);
   return (
@@ -30,6 +32,8 @@ export default function ResumeBuilder(props) {
           keySkills={keySkills}
           setKeySkills={setKeySkills}
           setCurrentState={setCurrentState}
+          activeTab={activeTab}
+          setActiveTab={setActiveTab}
         />
       )}
       {currentState === 3 && (
@@ -45,6 +49,8 @@ export default function ResumeBuilder(props) {
           setCurrentState={setCurrentState}
           resumeName={resumeName}
           setResumeName={setResumeName}
+          activeTab={activeTab}
+          setActiveTab={setActiveTab}
         />
       )}
     </Box>

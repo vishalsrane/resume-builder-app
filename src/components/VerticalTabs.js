@@ -53,12 +53,14 @@ export default function VerticalTabs(props) {
     keySkills,
     setKeySkills,
     setCurrentState,
+    activeTab,
+    setActiveTab,
   } = props;
-  const [value, setValue] = React.useState(0);
+  //   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
     console.log(newValue);
-    setValue(newValue);
+    setActiveTab(newValue);
   };
 
   return (
@@ -73,7 +75,7 @@ export default function VerticalTabs(props) {
       <Tabs
         orientation="vertical"
         // variant="scrollable"
-        value={value}
+        value={activeTab}
         onChange={handleChange}
         aria-label="Vertical tabs example"
         sx={{ borderRight: 1, borderColor: "divider" }}
@@ -83,7 +85,7 @@ export default function VerticalTabs(props) {
         <Tab label="Education" {...a11yProps(2)} />
         <Tab label="Key Skills" {...a11yProps(3)} />
       </Tabs>
-      <TabPanel value={value} index={0}>
+      <TabPanel value={activeTab} index={0}>
         <PersonalInfo
           previousButtonAction={() => handleChange(null, 0)}
           nextButtonAction={() => handleChange(null, 1)}
@@ -91,7 +93,7 @@ export default function VerticalTabs(props) {
           setPersonalInfo={setPersonalInfo}
         />
       </TabPanel>
-      <TabPanel value={value} index={1}>
+      <TabPanel value={activeTab} index={1}>
         <WorkExperience
           previousButtonAction={() => handleChange(null, 0)}
           nextButtonAction={() => handleChange(null, 2)}
@@ -99,7 +101,7 @@ export default function VerticalTabs(props) {
           setWorkExperience={setWorkExperience}
         />
       </TabPanel>
-      <TabPanel value={value} index={2}>
+      <TabPanel value={activeTab} index={2}>
         <Education
           previousButtonAction={() => handleChange(null, 1)}
           nextButtonAction={() => handleChange(null, 3)}
@@ -107,7 +109,7 @@ export default function VerticalTabs(props) {
           setEducation={setEducation}
         />
       </TabPanel>
-      <TabPanel value={value} index={3}>
+      <TabPanel value={activeTab} index={3}>
         <KeySkills
           previousButtonAction={() => handleChange(null, 2)}
           nextButtonAction={() => handleChange(null, 3)}

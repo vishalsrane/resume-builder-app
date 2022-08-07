@@ -66,7 +66,7 @@ export default function KeySkills(props) {
         </Grid>
         <Grid item xs={1}>
           <Button onClick={() => setCurrentState(3)} variant="contained">
-            Next
+            Preview
           </Button>
         </Grid>
       </Grid>

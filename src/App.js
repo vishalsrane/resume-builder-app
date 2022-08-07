@@ -37,6 +37,7 @@ function App() {
     skill4: "",
   });
   const [resumeName, setResumeName] = useState("");
+  const [activeTab, setActiveTab] = useState(0);
 
   return (
     <div className="App">
@@ -52,6 +53,8 @@ function App() {
         setKeySkills={setKeySkills}
         resumeName={resumeName}
         setResumeName={setResumeName}
+        activeTab={activeTab}
+        setActiveTab={setActiveTab}
       />
     </div>
   );

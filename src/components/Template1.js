@@ -13,6 +13,8 @@ export default function Template1(props) {
     nextButtonAction,
     resumeName,
     setResumeName,
+    setCurrentState,
+    setActiveTab,
   } = props;
 
   const onChange = (e) => {
@@ -111,7 +113,14 @@ export default function Template1(props) {
             onChange={onChange}
           />
           <br />
-          <Button onClick={previousButtonAction} variant="contained">
+          <Button
+            onClick={() => {
+              console.log("back button clivked in summary");
+              setCurrentState(2);
+              setActiveTab(3);
+            }}
+            variant="contained"
+          >
             Back
           </Button>
           <Button onClick={saveAsPdf} variant="contained">
