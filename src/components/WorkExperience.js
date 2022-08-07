@@ -1,7 +1,7 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
-import { TextField } from "@mui/material";
+import { Button, Divider, TextField } from "@mui/material";
 
 export default function WorkExperience(props) {
   const { workExperience, setWorkExperience } = props;
@@ -47,6 +47,17 @@ export default function WorkExperience(props) {
             variant="outlined"
             onChange={onChange}
           />
+        </Grid>
+        <Grid item xs={12}>
+          <Divider style={{ marginTop: "20px", marginBottom: "20px" }} />
+        </Grid>
+
+        <Grid item xs={10}></Grid>
+        <Grid item xs={1}>
+          <Button variant="contained">Back</Button>
+        </Grid>
+        <Grid item xs={1}>
+          <Button variant="contained">Next</Button>
         </Grid>
       </Grid>
     </Box>
