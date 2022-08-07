@@ -4,7 +4,12 @@ import Grid from "@mui/material/Grid";
 import { Button, Divider, TextField } from "@mui/material";
 
 export default function WorkExperience(props) {
-  const { workExperience, setWorkExperience } = props;
+  const {
+    workExperience,
+    setWorkExperience,
+    previousButtonAction,
+    nextButtonAction,
+  } = props;
 
   const onChange = (e) => {
     console.log(e.target.id);
@@ -54,10 +59,14 @@ export default function WorkExperience(props) {
 
         <Grid item xs={10}></Grid>
         <Grid item xs={1}>
-          <Button variant="contained">Back</Button>
+          <Button onClick={previousButtonAction} variant="contained">
+            Back
+          </Button>
         </Grid>
         <Grid item xs={1}>
-          <Button variant="contained">Next</Button>
+          <Button onClick={nextButtonAction} variant="contained">
+            Next
+          </Button>
         </Grid>
       </Grid>
     </Box>

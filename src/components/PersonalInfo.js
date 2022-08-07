@@ -4,7 +4,12 @@ import Grid from "@mui/material/Grid";
 import { Button, Divider, TextField } from "@mui/material";
 
 export default function PersonalInfo(props) {
-  const { personalInfo, setPersonalInfo } = props;
+  const {
+    personalInfo,
+    setPersonalInfo,
+    previousButtonAction,
+    nextButtonAction,
+  } = props;
 
   const onChange = (e) => {
     const personalInfoCopy = JSON.parse(JSON.stringify(personalInfo));
@@ -98,10 +103,14 @@ export default function PersonalInfo(props) {
 
         <Grid item xs={10}></Grid>
         <Grid item xs={1}>
-          <Button variant="contained">Back</Button>
+          <Button onClick={previousButtonAction} variant="contained">
+            Back
+          </Button>
         </Grid>
         <Grid item xs={1}>
-          <Button variant="contained">Next</Button>
+          <Button onClick={nextButtonAction} variant="contained">
+            Next
+          </Button>
         </Grid>
       </Grid>
     </Box>

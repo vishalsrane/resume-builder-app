@@ -56,6 +56,7 @@ export default function VerticalTabs(props) {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
+    console.log(newValue);
     setValue(newValue);
   };
 
@@ -83,21 +84,35 @@ export default function VerticalTabs(props) {
       </Tabs>
       <TabPanel value={value} index={0}>
         <PersonalInfo
+          previousButtonAction={() => handleChange(null, 0)}
+          nextButtonAction={() => handleChange(null, 1)}
           personalInfo={personalInfo}
           setPersonalInfo={setPersonalInfo}
         />
       </TabPanel>
       <TabPanel value={value} index={1}>
         <WorkExperience
+          previousButtonAction={() => handleChange(null, 0)}
+          nextButtonAction={() => handleChange(null, 2)}
           workExperience={workExperience}
           setWorkExperience={setWorkExperience}
         />
       </TabPanel>
       <TabPanel value={value} index={2}>
-        <Education education={education} setEducation={setEducation} />
+        <Education
+          previousButtonAction={() => handleChange(null, 1)}
+          nextButtonAction={() => handleChange(null, 3)}
+          education={education}
+          setEducation={setEducation}
+        />
       </TabPanel>
       <TabPanel value={value} index={3}>
-        <KeySkills keySkills={keySkills} setKeySkills={setKeySkills} />
+        <KeySkills
+          previousButtonAction={() => handleChange(null, 2)}
+          nextButtonAction={() => handleChange(null, 3)}
+          keySkills={keySkills}
+          setKeySkills={setKeySkills}
+        />
       </TabPanel>
     </Box>
   );
