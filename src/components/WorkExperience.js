@@ -9,6 +9,8 @@ export default function WorkExperience(props) {
     setWorkExperience,
     previousButtonAction,
     nextButtonAction,
+    nextButtonClickedOnWE,
+    setNextButtonClickedOnWE,
   } = props;
 
   const onChange = (e) => {
@@ -27,6 +29,13 @@ export default function WorkExperience(props) {
             label="Job Title"
             variant="outlined"
             onChange={onChange}
+            value={workExperience.jobTitle}
+            error={nextButtonClickedOnWE && workExperience.jobTitle === ""}
+            helperText={
+              nextButtonClickedOnWE && workExperience.jobTitle === ""
+                ? "Incorrect entry."
+                : ""
+            }
           />
         </Grid>
         <Grid item xs={6}>
@@ -35,6 +44,13 @@ export default function WorkExperience(props) {
             label="Organization Name"
             variant="outlined"
             onChange={onChange}
+            value={workExperience.orgName}
+            error={nextButtonClickedOnWE && workExperience.orgName === ""}
+            helperText={
+              nextButtonClickedOnWE && workExperience.orgName === ""
+                ? "Incorrect entry."
+                : ""
+            }
           />
         </Grid>
         <Grid item xs={6}>
@@ -43,6 +59,13 @@ export default function WorkExperience(props) {
             label="Start Year"
             variant="outlined"
             onChange={onChange}
+            value={workExperience.startYear}
+            error={nextButtonClickedOnWE && workExperience.startYear === ""}
+            helperText={
+              nextButtonClickedOnWE && workExperience.startYear === ""
+                ? "Incorrect entry."
+                : ""
+            }
           />
         </Grid>
         <Grid item xs={6}>
@@ -51,6 +74,13 @@ export default function WorkExperience(props) {
             label="End Year"
             variant="outlined"
             onChange={onChange}
+            value={workExperience.endYear}
+            error={nextButtonClickedOnWE && workExperience.endYear === ""}
+            helperText={
+              nextButtonClickedOnWE && workExperience.endYear === ""
+                ? "Incorrect entry."
+                : ""
+            }
           />
         </Grid>
         <Grid item xs={12}>
@@ -64,7 +94,17 @@ export default function WorkExperience(props) {
           </Button>
         </Grid>
         <Grid item xs={1}>
-          <Button onClick={nextButtonAction} variant="contained">
+          <Button
+            onClick={() => {
+              if (Object.values(workExperience).indexOf("") > -1) {
+                setNextButtonClickedOnWE(true);
+              } else {
+                setNextButtonClickedOnWE(true);
+                nextButtonAction();
+              }
+            }}
+            variant="contained"
+          >
             Next
           </Button>
         </Grid>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import Header from "./components/Header";
 import ResumeBuilder from "./components/ResumeBuilder";
 
@@ -38,6 +38,14 @@ function App() {
   });
   const [resumeName, setResumeName] = useState("");
   const [activeTab, setActiveTab] = useState(0);
+  const [nextButtonClickedOnPI, setNextButtonClickedOnPI] =
+    React.useState(false);
+  const [nextButtonClickedOnWE, setNextButtonClickedOnWE] =
+    React.useState(false);
+  const [nextButtonClickedOnEdu, setNextButtonClickedOnEdu] =
+    React.useState(false);
+  const [nextButtonClickedOnKS, setNextButtonClickedOnKS] =
+    React.useState(false);
 
   return (
     <div className="App">
@@ -55,6 +63,14 @@ function App() {
         setResumeName={setResumeName}
         activeTab={activeTab}
         setActiveTab={setActiveTab}
+        nextButtonClickedOnPI={nextButtonClickedOnPI}
+        setNextButtonClickedOnPI={setNextButtonClickedOnPI}
+        nextButtonClickedOnWE={nextButtonClickedOnWE}
+        setNextButtonClickedOnWE={setNextButtonClickedOnWE}
+        nextButtonClickedOnEdu={nextButtonClickedOnEdu}
+        setNextButtonClickedOnEdu={setNextButtonClickedOnEdu}
+        nextButtonClickedOnKS={nextButtonClickedOnKS}
+        setNextButtonClickedOnKS={setNextButtonClickedOnKS}
       />
     </div>
   );

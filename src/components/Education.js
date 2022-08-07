@@ -4,8 +4,14 @@ import Grid from "@mui/material/Grid";
 import { Button, Divider, TextField } from "@mui/material";
 
 export default function Education(props) {
-  const { education, setEducation, previousButtonAction, nextButtonAction } =
-    props;
+  const {
+    education,
+    setEducation,
+    previousButtonAction,
+    nextButtonAction,
+    nextButtonClickedOnEdu,
+    setNextButtonClickedOnEdu,
+  } = props;
 
   const onChange = (e) => {
     console.log(e.target.id);
@@ -23,6 +29,13 @@ export default function Education(props) {
             label="Type"
             variant="outlined"
             onChange={onChange}
+            value={education.type}
+            error={nextButtonClickedOnEdu && education.type === ""}
+            helperText={
+              nextButtonClickedOnEdu && education.type === ""
+                ? "Incorrect entry."
+                : ""
+            }
           />
         </Grid>
         <Grid item xs={6}>
@@ -34,6 +47,13 @@ export default function Education(props) {
             label="University"
             variant="outlined"
             onChange={onChange}
+            value={education.university}
+            error={nextButtonClickedOnEdu && education.university === ""}
+            helperText={
+              nextButtonClickedOnEdu && education.university === ""
+                ? "Incorrect entry."
+                : ""
+            }
           />
         </Grid>
         <Grid item xs={6}>
@@ -42,6 +62,13 @@ export default function Education(props) {
             label="Degree"
             variant="outlined"
             onChange={onChange}
+            value={education.degree}
+            error={nextButtonClickedOnEdu && education.degree === ""}
+            helperText={
+              nextButtonClickedOnEdu && education.degree === ""
+                ? "Incorrect entry."
+                : ""
+            }
           />
         </Grid>
         <Grid item xs={6}>
@@ -50,6 +77,13 @@ export default function Education(props) {
             label="Start Year"
             variant="outlined"
             onChange={onChange}
+            value={education.startYear}
+            error={nextButtonClickedOnEdu && education.startYear === ""}
+            helperText={
+              nextButtonClickedOnEdu && education.startYear === ""
+                ? "Incorrect entry."
+                : ""
+            }
           />
         </Grid>
         <Grid item xs={6}>
@@ -58,6 +92,13 @@ export default function Education(props) {
             label="End Year"
             variant="outlined"
             onChange={onChange}
+            value={education.endYear}
+            error={nextButtonClickedOnEdu && education.endYear === ""}
+            helperText={
+              nextButtonClickedOnEdu && education.endYear === ""
+                ? "Incorrect entry."
+                : ""
+            }
           />
         </Grid>
         <Grid item xs={12}>
@@ -71,7 +112,17 @@ export default function Education(props) {
           </Button>
         </Grid>
         <Grid item xs={1}>
-          <Button onClick={nextButtonAction} variant="contained">
+          <Button
+            onClick={() => {
+              if (Object.values(education).indexOf("") > -1) {
+                setNextButtonClickedOnEdu(true);
+              } else {
+                setNextButtonClickedOnEdu(true);
+                nextButtonAction();
+              }
+            }}
+            variant="contained"
+          >
             Next
           </Button>
         </Grid>

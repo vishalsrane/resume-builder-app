@@ -10,6 +10,8 @@ export default function KeySkills(props) {
     previousButtonAction,
     nextButtonAction,
     setCurrentState,
+    nextButtonClickedOnKS,
+    setNextButtonClickedOnKS,
   } = props;
 
   const onChange = (e) => {
@@ -28,6 +30,13 @@ export default function KeySkills(props) {
             label="Skill 1"
             variant="outlined"
             onChange={onChange}
+            value={keySkills.skill1}
+            error={nextButtonClickedOnKS && keySkills.skill1 === ""}
+            helperText={
+              nextButtonClickedOnKS && keySkills.skill1 === ""
+                ? "Incorrect entry."
+                : ""
+            }
           />
         </Grid>
         <Grid item xs={6}>
@@ -36,6 +45,13 @@ export default function KeySkills(props) {
             label="Skill 2"
             variant="outlined"
             onChange={onChange}
+            value={keySkills.skill2}
+            error={nextButtonClickedOnKS && keySkills.skill2 === ""}
+            helperText={
+              nextButtonClickedOnKS && keySkills.skill2 === ""
+                ? "Incorrect entry."
+                : ""
+            }
           />
         </Grid>
         <Grid item xs={6}>
@@ -44,6 +60,13 @@ export default function KeySkills(props) {
             label="Skill 3"
             variant="outlined"
             onChange={onChange}
+            value={keySkills.skill3}
+            error={nextButtonClickedOnKS && keySkills.skill3 === ""}
+            helperText={
+              nextButtonClickedOnKS && keySkills.skill3 === ""
+                ? "Incorrect entry."
+                : ""
+            }
           />
         </Grid>
         <Grid item xs={6}>
@@ -52,6 +75,13 @@ export default function KeySkills(props) {
             label="Skill 4"
             variant="outlined"
             onChange={onChange}
+            value={keySkills.skill4}
+            error={nextButtonClickedOnKS && keySkills.skill4 === ""}
+            helperText={
+              nextButtonClickedOnKS && keySkills.skill4 === ""
+                ? "Incorrect entry."
+                : ""
+            }
           />
         </Grid>
         <Grid item xs={12}>
@@ -65,7 +95,17 @@ export default function KeySkills(props) {
           </Button>
         </Grid>
         <Grid item xs={1}>
-          <Button onClick={() => setCurrentState(3)} variant="contained">
+          <Button
+            onClick={() => {
+              if (Object.values(keySkills).indexOf("") > -1) {
+                setNextButtonClickedOnKS(true);
+              } else {
+                setNextButtonClickedOnKS(true);
+                setCurrentState(3);
+              }
+            }}
+            variant="contained"
+          >
             Preview
           </Button>
         </Grid>

@@ -9,6 +9,8 @@ export default function PersonalInfo(props) {
     setPersonalInfo,
     previousButtonAction,
     nextButtonAction,
+    nextButtonClickedOnPI,
+    setNextButtonClickedOnPI,
   } = props;
 
   const onChange = (e) => {
@@ -26,6 +28,13 @@ export default function PersonalInfo(props) {
             label="First Name"
             variant="outlined"
             onChange={onChange}
+            value={personalInfo.firstName}
+            error={nextButtonClickedOnPI && personalInfo.firstName === ""}
+            helperText={
+              nextButtonClickedOnPI && personalInfo.firstName === ""
+                ? "Incorrect entry."
+                : ""
+            }
           />
         </Grid>
         <Grid item xs={6}>
@@ -34,6 +43,13 @@ export default function PersonalInfo(props) {
             label="Last Name"
             variant="outlined"
             onChange={onChange}
+            value={personalInfo.lastName}
+            error={nextButtonClickedOnPI && personalInfo.lastName === ""}
+            helperText={
+              nextButtonClickedOnPI && personalInfo.lastName === ""
+                ? "Incorrect entry."
+                : ""
+            }
           />
         </Grid>
         <Grid item xs={6}>
@@ -42,6 +58,13 @@ export default function PersonalInfo(props) {
             label="Email"
             variant="outlined"
             onChange={onChange}
+            value={personalInfo.email}
+            error={nextButtonClickedOnPI && personalInfo.email === ""}
+            helperText={
+              nextButtonClickedOnPI && personalInfo.email === ""
+                ? "Incorrect entry."
+                : ""
+            }
           />
         </Grid>
         <Grid item xs={6}>
@@ -50,6 +73,13 @@ export default function PersonalInfo(props) {
             label="Mobile"
             variant="outlined"
             onChange={onChange}
+            value={personalInfo.mobile}
+            error={nextButtonClickedOnPI && personalInfo.mobile === ""}
+            helperText={
+              nextButtonClickedOnPI && personalInfo.mobile === ""
+                ? "Incorrect entry."
+                : ""
+            }
           />
         </Grid>
         <Grid item xs={12}>
@@ -59,6 +89,13 @@ export default function PersonalInfo(props) {
             label="Address"
             variant="outlined"
             onChange={onChange}
+            value={personalInfo.address}
+            error={nextButtonClickedOnPI && personalInfo.address === ""}
+            helperText={
+              nextButtonClickedOnPI && personalInfo.address === ""
+                ? "Incorrect entry."
+                : ""
+            }
           />
         </Grid>
         <Grid item xs={6}>
@@ -67,6 +104,13 @@ export default function PersonalInfo(props) {
             label="city"
             variant="outlined"
             onChange={onChange}
+            value={personalInfo.city}
+            error={nextButtonClickedOnPI && personalInfo.city === ""}
+            helperText={
+              nextButtonClickedOnPI && personalInfo.city === ""
+                ? "Incorrect entry."
+                : ""
+            }
           />
         </Grid>
         <Grid item xs={6}>
@@ -75,6 +119,13 @@ export default function PersonalInfo(props) {
             label="state"
             variant="outlined"
             onChange={onChange}
+            value={personalInfo.state}
+            error={nextButtonClickedOnPI && personalInfo.lastName === ""}
+            helperText={
+              nextButtonClickedOnPI && personalInfo.lastName === ""
+                ? "Incorrect entry."
+                : ""
+            }
           />
         </Grid>
         <Grid item xs={6}>
@@ -83,6 +134,13 @@ export default function PersonalInfo(props) {
             label="postalCode"
             variant="outlined"
             onChange={onChange}
+            value={personalInfo.postalCode}
+            error={nextButtonClickedOnPI && personalInfo.postalCode === ""}
+            helperText={
+              nextButtonClickedOnPI && personalInfo.postalCode === ""
+                ? "Incorrect entry."
+                : ""
+            }
           />
         </Grid>
         <Grid item xs={6}>
@@ -95,6 +153,13 @@ export default function PersonalInfo(props) {
             label="Objective"
             variant="outlined"
             onChange={onChange}
+            value={personalInfo.objective}
+            error={nextButtonClickedOnPI && personalInfo.objective === ""}
+            helperText={
+              nextButtonClickedOnPI && personalInfo.objective === ""
+                ? "Incorrect entry."
+                : ""
+            }
           />
         </Grid>
         <Grid item xs={12}>
@@ -108,7 +173,17 @@ export default function PersonalInfo(props) {
           </Button>
         </Grid>
         <Grid item xs={1}>
-          <Button onClick={nextButtonAction} variant="contained">
+          <Button
+            onClick={() => {
+              if (Object.values(personalInfo).indexOf("") > -1) {
+                setNextButtonClickedOnPI(true);
+              } else {
+                setNextButtonClickedOnPI(true);
+                nextButtonAction();
+              }
+            }}
+            variant="contained"
+          >
             Next
           </Button>
         </Grid>

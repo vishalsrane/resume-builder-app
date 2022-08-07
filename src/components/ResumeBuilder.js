@@ -17,6 +17,14 @@ export default function ResumeBuilder(props) {
     setResumeName,
     activeTab,
     setActiveTab,
+    nextButtonClickedOnPI,
+    setNextButtonClickedOnPI,
+    nextButtonClickedOnWE,
+    setNextButtonClickedOnWE,
+    nextButtonClickedOnEdu,
+    setNextButtonClickedOnEdu,
+    nextButtonClickedOnKS,
+    setNextButtonClickedOnKS,
   } = props;
   const [currentState, setCurrentState] = React.useState(2);
   return (
@@ -34,6 +42,14 @@ export default function ResumeBuilder(props) {
           setCurrentState={setCurrentState}
           activeTab={activeTab}
           setActiveTab={setActiveTab}
+          nextButtonClickedOnPI={nextButtonClickedOnPI}
+          setNextButtonClickedOnPI={setNextButtonClickedOnPI}
+          nextButtonClickedOnWE={nextButtonClickedOnWE}
+          setNextButtonClickedOnWE={setNextButtonClickedOnWE}
+          nextButtonClickedOnEdu={nextButtonClickedOnEdu}
+          setNextButtonClickedOnEdu={setNextButtonClickedOnEdu}
+          nextButtonClickedOnKS={nextButtonClickedOnKS}
+          setNextButtonClickedOnKS={setNextButtonClickedOnKS}
         />
       )}
       {currentState === 3 && (

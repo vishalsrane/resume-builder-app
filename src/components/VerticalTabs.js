@@ -55,6 +55,14 @@ export default function VerticalTabs(props) {
     setCurrentState,
     activeTab,
     setActiveTab,
+    nextButtonClickedOnPI,
+    setNextButtonClickedOnPI,
+    nextButtonClickedOnWE,
+    setNextButtonClickedOnWE,
+    nextButtonClickedOnEdu,
+    setNextButtonClickedOnEdu,
+    nextButtonClickedOnKS,
+    setNextButtonClickedOnKS,
   } = props;
   //   const [value, setValue] = React.useState(0);
 
@@ -91,6 +99,8 @@ export default function VerticalTabs(props) {
           nextButtonAction={() => handleChange(null, 1)}
           personalInfo={personalInfo}
           setPersonalInfo={setPersonalInfo}
+          nextButtonClickedOnPI={nextButtonClickedOnPI}
+          setNextButtonClickedOnPI={setNextButtonClickedOnPI}
         />
       </TabPanel>
       <TabPanel value={activeTab} index={1}>
@@ -99,6 +109,8 @@ export default function VerticalTabs(props) {
           nextButtonAction={() => handleChange(null, 2)}
           workExperience={workExperience}
           setWorkExperience={setWorkExperience}
+          nextButtonClickedOnWE={nextButtonClickedOnWE}
+          setNextButtonClickedOnWE={setNextButtonClickedOnWE}
         />
       </TabPanel>
       <TabPanel value={activeTab} index={2}>
@@ -107,6 +119,8 @@ export default function VerticalTabs(props) {
           nextButtonAction={() => handleChange(null, 3)}
           education={education}
           setEducation={setEducation}
+          nextButtonClickedOnEdu={nextButtonClickedOnEdu}
+          setNextButtonClickedOnEdu={setNextButtonClickedOnEdu}
         />
       </TabPanel>
       <TabPanel value={activeTab} index={3}>
@@ -116,6 +130,8 @@ export default function VerticalTabs(props) {
           keySkills={keySkills}
           setKeySkills={setKeySkills}
           setCurrentState={setCurrentState}
+          nextButtonClickedOnKS={nextButtonClickedOnKS}
+          setNextButtonClickedOnKS={setNextButtonClickedOnKS}
         />
       </TabPanel>
     </Box>
