@@ -1,6 +1,7 @@
 import { Button, Divider, Grid, TextField, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import * as React from "react";
+import jsPDF from "jspdf";
 
 export default function Template1(props) {
   const {
@@ -18,10 +19,19 @@ export default function Template1(props) {
     setResumeName(e.target.value);
   };
 
+  const saveAsPdf = () => {
+    const doc = new jsPDF("p", "pt", "a4");
+    doc.html(document.querySelector("#resume"), {
+      callback: (pdf) => {
+        pdf.save(resumeName + ".pdf");
+      },
+    });
+  };
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={2}>
-        <Grid item xs={8}>
+        <Grid id="resume" item xs={8}>
           <Grid item xs={8}>
             <Typography variant="h5" gutterBottom component="div">
               {personalInfo.firstName + " " + personalInfo.lastName ||
@@ -99,7 +109,7 @@ export default function Template1(props) {
           <Button onClick={previousButtonAction} variant="contained">
             Back
           </Button>
-          <Button onClick={nextButtonAction} variant="contained">
+          <Button onClick={saveAsPdf} variant="contained">
             Save
           </Button>
         </Grid>
