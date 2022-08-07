@@ -31,7 +31,12 @@ export default function Template1(props) {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={2}>
-        <Grid id="resume" item xs={8}>
+        <Grid
+          id="resume"
+          style={{ padding: "10px", width: "587px", height: "834px" }}
+          item
+          xs={8}
+        >
           <Grid item xs={8}>
             <Typography variant="h5" gutterBottom component="div">
               {personalInfo.firstName + " " + personalInfo.lastName ||
