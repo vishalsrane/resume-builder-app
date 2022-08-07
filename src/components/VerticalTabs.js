@@ -52,6 +52,7 @@ export default function VerticalTabs(props) {
     setEducation,
     keySkills,
     setKeySkills,
+    setCurrentState,
   } = props;
   const [value, setValue] = React.useState(0);
 
@@ -112,6 +113,7 @@ export default function VerticalTabs(props) {
           nextButtonAction={() => handleChange(null, 3)}
           keySkills={keySkills}
           setKeySkills={setKeySkills}
+          setCurrentState={setCurrentState}
         />
       </TabPanel>
     </Box>

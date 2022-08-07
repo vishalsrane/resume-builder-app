@@ -4,8 +4,13 @@ import Grid from "@mui/material/Grid";
 import { Button, Divider, TextField } from "@mui/material";
 
 export default function KeySkills(props) {
-  const { keySkills, setKeySkills, previousButtonAction, nextButtonAction } =
-    props;
+  const {
+    keySkills,
+    setKeySkills,
+    previousButtonAction,
+    nextButtonAction,
+    setCurrentState,
+  } = props;
 
   const onChange = (e) => {
     console.log(e.target.id);
@@ -60,7 +65,7 @@ export default function KeySkills(props) {
           </Button>
         </Grid>
         <Grid item xs={1}>
-          <Button onClick={nextButtonAction} variant="contained">
+          <Button onClick={() => setCurrentState(3)} variant="contained">
             Next
           </Button>
         </Grid>

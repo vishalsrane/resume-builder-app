@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Header from "./components/Header";
-import VerticalTabs from "./components/VerticalTabs";
+import ResumeBuilder from "./components/ResumeBuilder";
 
 function App() {
   const [personalInfo, setPersonalInfo] = useState({
@@ -36,11 +36,12 @@ function App() {
     skill3: "",
     skill4: "",
   });
+  const [resumeName, setResumeName] = useState("");
 
   return (
     <div className="App">
       <Header />
-      <VerticalTabs
+      <ResumeBuilder
         personalInfo={personalInfo}
         setPersonalInfo={setPersonalInfo}
         workExperience={workExperience}
@@ -49,6 +50,8 @@ function App() {
         setEducation={setEducation}
         keySkills={keySkills}
         setKeySkills={setKeySkills}
+        resumeName={resumeName}
+        setResumeName={setResumeName}
       />
     </div>
   );
