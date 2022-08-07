@@ -7,6 +7,7 @@ import Box from "@mui/material/Box";
 import PersonalInfo from "./PersonalInfo";
 import WorkExperience from "./WorkExperience";
 import Education from "./Education";
+import KeySkills from "./KeySkills";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -49,6 +50,8 @@ export default function VerticalTabs(props) {
     setWorkExperience,
     education,
     setEducation,
+    keySkills,
+    setKeySkills,
   } = props;
   const [value, setValue] = React.useState(0);
 
@@ -94,7 +97,7 @@ export default function VerticalTabs(props) {
         <Education education={education} setEducation={setEducation} />
       </TabPanel>
       <TabPanel value={value} index={3}>
-        Item Four
+        <KeySkills keySkills={keySkills} setKeySkills={setKeySkills} />
       </TabPanel>
     </Box>
   );

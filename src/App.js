@@ -30,6 +30,13 @@ function App() {
     endYear: "",
   });
 
+  const [keySkills, setKeySkills] = useState({
+    skill1: "",
+    skill2: "",
+    skill3: "",
+    skill4: "",
+  });
+
   return (
     <div className="App">
       <Header />
@@ -40,6 +47,8 @@ function App() {
         setWorkExperience={setWorkExperience}
         education={education}
         setEducation={setEducation}
+        keySkills={keySkills}
+        setKeySkills={setKeySkills}
       />
     </div>
   );
